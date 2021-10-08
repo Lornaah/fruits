@@ -28,7 +28,7 @@ public class Kiwi extends Fruits implements PeelFruit {
 
 	@Override
 	public String getSkinType() {
-		return "piquante";
+		return "La peau est piquante et ne se mange pas !";
 	}
 
 }

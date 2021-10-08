@@ -28,7 +28,7 @@ public class Pineapple extends Fruits implements PeelFruit {
 
 	@Override
 	public String getSkinType() {
-		return "doux";
+		return "La peau est très épaisse, on ne peut pas la manger !";
 	}
 
 }

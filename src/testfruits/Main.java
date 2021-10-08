@@ -1,11 +1,13 @@
 package testfruits;
 
+import fruits.Pineapple;
+
 public class Main {
 
 	public static void main(String[] args) {
 
+		Pineapple pen = new Pineapple();
 		Menu.showMenu();
-		Menu.askMenu();
 
 //		Apple a = new Apple();
 //		a.sePrésenter();
@@ -13,7 +15,7 @@ public class Main {
 //			System.out.println("Ce fruit n'implémente pas l'interface PeelFruit");
 //		}
 //
-//		Pineapple pen = new Pineapple();
+
 //		pen.sePrésenter();
 //
 //		Grape g = new Grape();

@@ -25,6 +25,7 @@ public abstract class Fruits implements PeelFruit {
 	public void sePrésenter() {
 		taste();
 		seed();
+		System.out.println(getSkinType());
 	}
 
 	public void peeled() {

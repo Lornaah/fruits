@@ -28,7 +28,7 @@ public class Grape extends Fruits {
 
 	@Override
 	public String getSkinType() {
-		return "Un peu gluant mais apétissant !";
+		return "La peau est très fine, on la mange facilement !";
 	}
 
 }

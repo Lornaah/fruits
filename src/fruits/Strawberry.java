@@ -28,7 +28,7 @@ public class Strawberry extends Fruits {
 
 	@Override
 	public String getSkinType() {
-		return "Il n'y a pas de peau";
+		return "Il n'y a pas de peau !";
 	}
 
 }
