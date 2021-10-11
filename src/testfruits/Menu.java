@@ -64,12 +64,48 @@ public class Menu {
 		}
 	}
 
+	public static void askPeel() {
+		try (Scanner scanner = new Scanner(System.in)) {
+			boolean canContinue = false;
+			while (canContinue == false) {
+				canContinue = true;
+				System.out.println("Quel fruit souhaitez-vous éplucher ?" + EnumFruit.getNames());
+				/*
+				 * Possibilité de reprendre le scan précédent
+				 */
+				String compo = scanner.nextLine();
+				String[] choix = compo.split(" ");
+
+				for (String valeur : choix) {
+					if (!EnumFruit.getNames().contains(valeur)) {
+						canContinue = false;
+						System.out.println("Désolé, '" + valeur + "' n'existe pas. Veuillez recommencer.");
+					} else {
+						System.out.println("Vous avez bien sélectionné " + compo + " ? (O)ui / (N)on ");
+						String answer = scanner.next("[onON]");
+
+						if (answer.equalsIgnoreCase("N")) {
+							canContinue = false;
+							System.out.println("Veuillez recommencer votre commande");
+							showMenu();
+						}
+					}
+				}
+
+				canContinue = true;
+				System.out.println("Vos fruits : '" + compo + "' seront bien épluchés. Merci pour votre commande.");
+
+			}
+		}
+	}
+
 	public static void askMenu() {
 		try (Scanner scanner = new Scanner(System.in)) {
 			boolean canContinue = false;
 			while (canContinue == false) {
 				canContinue = true;
 				System.out.println("Bienvenue ! Que voulez-vous mettre comme fruits dans votre salade ?");
+				System.out.println(EnumFruit.getNames());
 				String compo = scanner.nextLine();
 				String[] choix = compo.split(" ");
 
@@ -82,19 +118,27 @@ public class Menu {
 
 				if (!canContinue)
 					continue;
-				/*
-				 * Puis demander si on souhaite éplucher le fruit avec peeled() / isPeeled()
-				 */
+
 				System.out.println("Vous avez bien sélectionné " + compo + " ? (O)ui / (N)on ");
 				String answer = scanner.next("[onON]");
 
 				if (answer.equalsIgnoreCase("N")) {
 					canContinue = false;
 					System.out.println("Veuillez recommencer votre commande");
+					showMenu();
 				}
 
 				System.out.println("Votre salade de fruits sera donc composée de : " + compo);
+
+				System.out.println("Souhaitez vous épluché un ou plusieurs fruit(s) ? (O)ui / (N)on");
+
+				String wantPeel = scanner.next();
+				if (wantPeel.equalsIgnoreCase("O")) {
+					askPeel();
+				}
 			}
+
 		}
+
 	}
 }
